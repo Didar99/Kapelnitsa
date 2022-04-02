@@ -1,5 +1,9 @@
 package in.naveens.mqttbroker;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
@@ -74,6 +78,7 @@ public class Utils {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public static String generatePassword() {
         int leftLimit = 48; // numeral '0'
         int rightLimit = 122; // letter 'z'

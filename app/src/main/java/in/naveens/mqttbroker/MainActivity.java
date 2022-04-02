@@ -1,5 +1,6 @@
 package in.naveens.mqttbroker;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceFragmentCompat;
@@ -11,6 +12,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void initSharedPrefs() {
         SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -102,14 +106,30 @@ public class MainActivity extends AppCompatActivity implements
                         stopService();
                         startService();
                     }).start();
-                    Toast.makeText(this, "MQTT broker restarted with updated config", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Serwer täzelenen konfigurasiýa bilen täzeden işe girizildi", Toast.LENGTH_LONG).show();
                     break;
                 case "mqtt_password":
                 case "mqtt_username":
                 case "mqtt_port1":
                     View contextView = findViewById(android.R.id.content);
-                    Snackbar.make(contextView, "You need to restart the server for applying the config changes", Snackbar.LENGTH_LONG)
+                    Snackbar.make(contextView, "Girizilen üýtgeşmeleri ulanmak üçin serweri täzeden işe girizmeli", Snackbar.LENGTH_LONG)
                             .show();
+                    break;
+                case "go_next":
+                    startActivity(new Intent(getApplicationContext(), HealthActivity.class));
+                    break;
+                case "notification_key":
+//                    boolean notification = sharedPreferences.getBoolean(key, false);
+                    boolean notification = PrefConfig.loadNotify(getApplicationContext());
+                    if (!notification) {
+                        PrefConfig.saveNotify(getApplicationContext(), true);
+                        notification = true;
+                        Log.e("NOTIFICATION", "TRUE");
+                    } else {
+                        PrefConfig.saveNotify(getApplicationContext(), false);
+                        notification = false;
+                        Log.e("NOTIFICATION", "FALSE");
+                    }
                     break;
             }
         } catch (Exception e) {
@@ -128,4 +148,10 @@ public class MainActivity extends AppCompatActivity implements
         Intent serviceIntent = new Intent(this, MqttService.class);
         stopService(serviceIntent);
     }
+
+//    @Override
+//    public void onBackPressed() {
+//        startActivity(new Intent(getApplicationContext(), HealthActivity.class));
+//    }
+
 }

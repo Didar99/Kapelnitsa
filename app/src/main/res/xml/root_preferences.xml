@@ -10,6 +10,16 @@
             app:summary="@string/broker_status_summary"
             app:title="@string/broker_status_title" />
 
+        <SwitchPreferenceCompat
+            app:key="notification_key"
+            app:summary="Duýduryş hyzmaty"
+            app:title="Duýduryşy işlediň" />
+
+        <EditTextPreference
+            app:key="go_next"
+            app:title="@string/next_to"
+            app:useSimpleSummaryProvider="true" />
+
         <EditTextPreference
             app:key="mqtt_host"
             app:selectable="false"

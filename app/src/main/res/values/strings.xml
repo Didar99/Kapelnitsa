@@ -1,27 +1,29 @@
 <resources>
-    <string name="app_name">MQTT Broker</string>
+    <string name="app_name">Damjalaýyn Sanjym</string>
 
     <!--Shared Prefs keys-->
     <string name="isFirst">is_first_time</string>
 
 
     <!--Settings Heading-->
-    <string name="mqtt_settings_title">MQTT Broker</string>
-    <string name="mqtt_header">MQTT Settings</string>
-    <string name="mqtt_auth_header">MQTT Authentication</string>
+    <string name="mqtt_settings_title">Damjalaýyn sanjym</string>
+    <string name="mqtt_header">MQTT sazlamalar</string>
+    <string name="mqtt_auth_header">MQTT Autentifikasiýa</string>
 
     <!--Settings Title-->
-    <string name="broker_status_title">Enable MQTT Server</string>
-    <string name="host_title">Host</string>
+    <string name="broker_status_title">Serweri işlediň</string>
+    <string name="host_title">IP salgysy</string>
     <string name="port_title">Port</string>
-    <string name="auth_status_title">Enable Authentication</string>
-    <string name="username_title">Username</string>
-    <string name="password_title">Password</string>
+    <string name="auth_status_title">Autentifikasiýany işlediň</string>
+    <string name="username_title">Ulanyjy ady</string>
+    <string name="password_title">Parol</string>
 
     <!--Summary-->
-    <string name="broker_status_summary">Restart required if changes in below settings needs to be reflected</string>
-    <string name="auth_enabled_summary">You need username and password to establish connection</string>
-    <string name="auth_disabled_summary">You don\'t need username or password for connection</string>
+    <string name="broker_status_summary">Aşakdaky sazlamalarda üýtgeşmeler görkezilen bolsa täzeden işe girizmeli</string>
+    <string name="auth_enabled_summary">Birikdirmek üçin ulanyjy ady we paroly gerek</string>
+    <string name="auth_disabled_summary">Birikdirmek üçin ulanyjy ady ýa-da paroly gerek däl</string>
+    <string name="next">Ulanyjy sahypasy</string>
+    <string name="next_to">Damjalaýyn sanjym</string>
 
     <!--Prefs key-->
     <string name="mqtt_broker_status">mqtt_broker_status</string>
@@ -32,7 +34,7 @@
     <string name="mqtt_password">mqtt_password</string>
 
     <!--Service Messages-->
-    <string name="notification_title">MQTT Broker</string>
-    <string name="notification_message">MQTT Broker service is running</string>
-    <string name="ticker_text">MQTT Broker Ticker</string>
+    <string name="notification_title">Diňleýär..</string>
+    <string name="notification_message">Serwer hyzmaty işleýär</string>
+    <string name="ticker_text">Serwer bellik</string>
 </resources>

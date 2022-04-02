@@ -14,6 +14,7 @@ import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.preference.PreferenceManager;
 
 import org.apache.log4j.chainsaw.Main;
@@ -52,6 +53,7 @@ public class MqttService extends Service {
         return null;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.i(TAG, "Received start id " + startId + " : " + intent);
@@ -60,7 +62,7 @@ public class MqttService extends Service {
         try {
             updateIP();
         } catch (Exception e) {
-            Log.e(TAG, "Error : " + e.getMessage());
+            Log.e(TAG, "Ýalňyş : " + e.getMessage());
         }
         try {
             Properties props = getConfig();
@@ -71,14 +73,14 @@ public class MqttService extends Service {
                 thread.setName("MQTT Server");
                 thread.start();
                 if (futureTask.get()) {
-                    Toast.makeText(this, "MQTT Broker Service started", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Serwer işe girizildi", Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(this, "Unable to start MQTT Broker", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Serweri işe girizip bolmady", Toast.LENGTH_LONG).show();
                 }
             }
         } catch (ExecutionException e) {
-            Log.e(TAG, "Error : " + e.getMessage());
-            Toast.makeText(this, "Try using another port. Address already in use", Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "Ýalňyş : " + e.getMessage());
+            Toast.makeText(this, "Başga port ulanyp görüň. Salgysy eýýäm ulanylýar", Toast.LENGTH_SHORT).show();
             stopSelf();
             return START_NOT_STICKY;
         } catch (Exception e) {
@@ -90,6 +92,7 @@ public class MqttService extends Service {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private Notification getNotification() {
         createNotificationChannel();
         Intent notificationIntent = new Intent(this, MainActivity.class);
@@ -143,7 +146,7 @@ public class MqttService extends Service {
                     e.printStackTrace();
                 }
             } else {
-                Toast.makeText(this, "Unable to generate auth file", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Autentifikasiýa faýly döredip bolmaýar", Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -165,7 +168,7 @@ public class MqttService extends Service {
                 Log.d(TAG, "Trying to stop mqtt server");
                 mqttBroker.stopServer();
                 thread.interrupt();
-                Toast.makeText(this, "MQTT Broker Service stopped", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Serwer hyzmaty bes edildi", Toast.LENGTH_LONG).show();
             } catch (Exception e) {
                 Log.e(TAG, e.getMessage());
             }

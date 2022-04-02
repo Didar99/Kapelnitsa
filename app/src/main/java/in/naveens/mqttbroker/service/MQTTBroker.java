@@ -34,14 +34,14 @@ public class MQTTBroker implements Callable<Boolean> {
         try {
             server = ServerInstance.getServerInstance();
             server.startServer(config);
-            Log.d(TAG, "MQTT Broker Started");
+            Log.d(TAG, "Serwer işe girizildi");
             return true;
         } catch (BindException e) {
-            Log.e(TAG, "Address already in use. Unable to bind.");
-            Log.e(TAG, "Error : " + e.getMessage());
+            Log.e(TAG, "Salgysy eýýäm ulanylýar. Baglanyp bolmaýar.");
+            Log.e(TAG, "Ýalňyş : " + e.getMessage());
             throw new BindException(e.getLocalizedMessage());
         } catch (IOException e) {
-            Log.e(TAG, "Error : " + e.getMessage());
+            Log.e(TAG, "Ýalňyş : " + e.getMessage());
         }
         return false;
     }

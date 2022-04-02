@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/ic_key.xml" value="0.184" />
+        <entry key="app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.3425" />
+        <entry key="app/src/main/res/drawable/ic_mqtt_sq.xml" value="0.184" />
+        <entry key="app/src/main/res/drawable/ic_server.xml" value="0.184" />
+        <entry key="app/src/main/res/layout/activity_health.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/settings_activity.xml" value="0.25677083333333334" />
+        <entry key="app/src/main/res/xml/root_preferences.xml" value="0.35833333333333334" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
