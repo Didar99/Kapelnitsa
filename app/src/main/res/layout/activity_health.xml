@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".HealthActivity">
 
-
-
     <com.gelitenight.waveview.library.WaveView
         android:id="@+id/wave"
         android:layout_width="match_parent"
